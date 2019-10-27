@@ -1,0 +1,122 @@
+# set modifier
+set $super Mod4
+set $alt Mod1
+
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
+
+# set font
+font pango: Literation Mono Powerline 12
+
+#autostart
+#exec --no-startup-id compton -b
+exec_always xmodmap ~/.Xmodmap
+exec_always xset r rate 180 90
+exec_always xset b 10 150 10
+exec_always xset -b
+exec_always xsetroot -cursor_name left_ptr
+exec_always xsetroot -solid '#1d2021'
+exec_always xrdb -load ~/.Xresources
+exec_always feh --bg-scale ~/media/zentree.png
+
+# start a terminal
+bindsym $super+F1 exec urxvt -e screen
+
+# start dmenu (a program launcher)
+bindsym $super+F2 exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Literation Mono Powerline:size=12'"
+#bindsym $super+F2 exec rofi -lines 12 -padding 18 -width 60 -location 0 -show run -sidebar-mode -columns 2 -font 'Literation Mono Powerline 12'
+
+#change volume
+bindsym XF86AudioRaiseVolume exec mixer +5
+bindsym XF86AudioLowerVolume exec mixer -5
+
+# kill focused window
+bindsym $super+c kill
+
+# change focus
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
+
+# move focused window
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+# split in horizontal orientation
+#bindsym $super+h split h
+
+# split in vertical orientation
+bindsym $super+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $super+f fullscreen toggle
+
+# change container layout split
+bindsym $super+s layout toggle split
+
+# toggle tiling / floating
+bindsym $super+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $super+Shift+space focus mode_toggle
+
+# switch to workspace
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
+bindsym $super+4 workspace 4
+bindsym $super+5 workspace 5
+bindsym $super+6 workspace 6
+
+# move focused container to workspace
+bindsym $super+Shift+1 move container to workspace 1
+bindsym $super+Shift+2 move container to workspace 2
+bindsym $super+Shift+3 move container to workspace 3
+bindsym $super+Shift+4 move container to workspace 4
+bindsym $super+Shift+5 move container to workspace 5
+bindsym $super+Shift+6 move container to workspace 6
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+Shift+r restart
+
+# exit i3
+bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
+
+# panel
+bar {
+    status_command i3status
+    separator_symbol "|"
+    #tray_output primary
+    position top
+    binding_mode_indicator yes
+    font pango: Literation Mono Powerline 10
+    workspace_buttons yes
+
+    colors {
+        background #1d2021
+        separator #A0CF5D
+        statusline #F6F1D1
+
+        focused_workspace  #1d2021 #1d2021 #E6B89C
+        active_workspace #1d2021 #1d2021 #F6F1D1
+        inactive_workspace #1d2021 #1d2021 #F6F1D1
+        urgent_workspace #1d2021 #1d2021 #cc241d
+    }
+}
+
+default_border none
+
+# window rules, you can find the window class using xprop
+assign [class=URxvt] 1
+assign [class=Chrome] 2
+
+# colour of border, background, text, indicator, and child_border
+client.background       #F6F1D1
+client.focused          #1d2021 #1d2021 #E6B89C #2E9EF4 #1d2021
+client.focused_inactive #1d2021 #1d2021 #F6F1D1 #484E50 #1d2021
+client.unfocused        #1d2021 #1d2021 #F6F1D1 #292D2E #1d2021
+client.urgent           #1d2021 #1d2021 #cc241d #900000 #1d2021
+client.placeholder      #1d2021 #1d2021 #F6F1D1 #000000 #1d2021

@@ -1,0 +1,37 @@
+escape `\
+
+attrcolor b ".I"
+setenv LC_CTYPE en_US.UTF-8
+encoding utf8 utf8
+defencoding utf8
+defutf8 on
+utf8 on
+defutf8 on
+setenv DISPLAY ':0'
+term rxvt-unicode-256color
+termcapinfo rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'   # tell screen how to set colors. AB = background, AF=foreground
+termcapinfo rxvt* ti@:te@
+hardcopy_append on
+crlf off
+altscreen on
+defhstatus "screen: ^En (^Et)"
+shell fish
+shelltitle ''
+defmonitor on
+defbce on
+defscrollback 3000
+select 0
+nethack on
+nonblock on
+defnonblock 1
+startup_message off
+vbell off
+autodetach on
+deflogin on
+defflow off
+msgwait 1
+acladd boy
+sorendition +b kG
+windowlist string "%4n %h%=%f"
+hardstatus off
+hardstatus alwayslastline "%{=b}%{G}%{r}%w"
