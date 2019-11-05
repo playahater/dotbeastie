@@ -1,3 +1,10 @@
+set fish_greeting
+
+abbr -a free 'top -n | grep Mem'
+
+abbr -a boot-doze 'sudo qemu-system-x86_64 -enable-kvm -machine q35,accel=kvm -device intel-iommu -cpu host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m 6G -drive file=$HOME/sandbox/doze10/doze10.raw,format=raw,if=ide,aio=native,cache=none -net nic,model=rtl8139 -net user -usb -device nec-usb-xhci,id=xhci -device usb-host,bus=xhci.0,hostbus=1,hostport=2'
+
+abbr -a gpush 'git push'
 abbr -a gb 'git branch'
 abbr -a gba 'git branch -a'
 abbr -a gbd 'git branch -d'
@@ -134,7 +141,7 @@ abbr -a npmR "npm run"
 abbr -a npmP "npm publish"
 abbr -a npmI "npm init"
 
-abbr -a cp "rsync -avz -hhh --progress -h"
-abbr -a mv "rsync -avz -hhh --progress -h --remove-source-files"
+abbr -a cprs "rsync -avz -hhh --progress -h"
+abbr -a mvrs "rsync -avz -hhh --progress -h --remove-source-files"
 abbr -a rsyncu "rsync -avzu -hhh --progress -h"
 abbr -a rsyncsync "rsync -avzu -hhh --delete --progress -h"

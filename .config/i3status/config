@@ -11,7 +11,6 @@ general {
 order += "load"
 order += "cpu_usage"
 order += "cpu_temperature 0"
-order += "memory"
 order += "wireless wlan0"
 order += "battery 0"
 order += "volume master"
@@ -33,13 +32,6 @@ cpu_usage {
     max_threshold = 75
     degraded_threshold = 25
 }
-
-memory {
-    format = "mem: %used"
-    threshold_degraded = "10%"
-    format_degraded = "MEMORY: %free"
-}
-
 
 wireless wlan0 {
     format_up = "wlan0: %essid"

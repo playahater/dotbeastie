@@ -26,6 +26,9 @@ bindsym $super+F1 exec urxvt -e screen
 bindsym $super+F2 exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Literation Mono Powerline:size=12'"
 #bindsym $super+F2 exec rofi -lines 12 -padding 18 -width 60 -location 0 -show run -sidebar-mode -columns 2 -font 'Literation Mono Powerline 12'
 
+#take a screenshot
+bindsym --release Print exec screenshot
+
 #change volume
 bindsym XF86AudioRaiseVolume exec mixer +5
 bindsym XF86AudioLowerVolume exec mixer -5
